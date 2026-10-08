@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAB | CAMPUS DIGITAL</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <!-- =====MENÚ======= -->
+    <header class="header">
+        <nav class="navbar">
+            <!-- =====LOGO DE LA INSTITUCION======= -->
+            <a href="{{ url_for('inicio') }}" class="logo">
+                <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+            </a>
+
+            <div class="menu" id="menu">
+                <a href="{{ url_for('inicio') }}" class="activo"> Inicio </a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <!-- =====ACCION - MODO TEMA - MENU RESPONSIBO======= -->
+            <div class="acciones">
+                <button class="tema-btn" onclick="cambiarTema()">🌙</button>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            </div>
+        </nav>
+    </header>
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <main>
+
+
+        <section class="pagina-titulo">
+
+            <span>
+                ESTAMOS PARA AYUDARTE
+            </span>
+
+            <h1>
+                Contáctanos
+            </h1>
+
+            <p>
+                ¿Tienes alguna pregunta?
+                Escríbenos y nos pondremos en
+                contacto contigo.
+            </p>
+
+        </section>
+
+
+        <section class="contacto">
+
+            <!-- =====================
+                 INFORMACIÓN
+            ====================== -->
+
+            <div class="contacto-info">
+
+                <h2>
+                    Información de contacto
+                </h2>
+
+                <p>
+                    Puedes comunicarte con nosotros
+                    utilizando cualquiera de los
+                    siguientes medios.
+                </p>
+
+
+                <div class="contacto-item">
+
+                    <div class="contacto-icono">
+                        📧
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Correo electrónico
+                        </h3>
+
+                        <p>
+                            contacto@campusdigital.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contacto-item">
+
+                    <div class="contacto-icono">
+                        📱
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Teléfono
+                        </h3>
+
+                        <p>
+                            +591 70000000
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contacto-item">
+
+                    <div class="contacto-icono">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Ubicación
+                        </h3>
+
+                        <p>
+                            Bolivia
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contacto-item">
+
+                    <div class="contacto-icono">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Horario
+                        </h3>
+
+                        <p>
+                            Lunes a Viernes
+                            <br>
+                            08:00 - 18:00
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 FORMULARIO
+            ====================== -->
+
+            <div class="formulario-contenedor">
+
+                <h2>
+                    Envíanos un mensaje
+                </h2>
+
+                <p>
+                    Completa el siguiente formulario.
+                </p>
+
+
+                <form
+                    class="formulario"
+                    onsubmit="enviarFormulario(event)">
+
+
+                    <div class="campo">
+
+                        <label for="nombre">
+                            Nombre completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Ingresa tu nombre">
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            placeholder="ejemplo@gmail.com">
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="asunto">
+                            Asunto
+                        </label>
+
+                        <input
+                            type="text"
+                            id="asunto"
+                            placeholder="¿En qué podemos ayudarte?">
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="mensaje">
+                            Mensaje
+                        </label>
+
+                        <textarea
+                            id="mensaje"
+                            rows="6"
+                            placeholder="Escribe tu mensaje...">
+                        </textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-formulario">
+
+                        📩 Enviar mensaje
+
+                    </button>
+
+
+                    <div
+                        id="mensajeFormulario"
+                        class="mensaje-formulario">
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+<!-- ======FOOTER========= -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <a href="{{ url_for('inicio') }}" class="logo">
+                    <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+                 </a>
+                <p>Educación, tecnología e innovación para construir un mejor futuro.</p>
+            </div>
+            <div class="footer-columna">
+                <h3>Enlaces</h3>
+                <a href="{{ url_for('inicio') }}">Inicio</a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <div class="footer-columna">
+                <h3>Contacto</h3>
+                <p>📧 ariel.alvarez.m@uab.edu.bo</p>
+                <p>📱 79959978 - 71737636</p>
+                <p>📍 Bolivia, Cochabamba - Avenida Pairumani & C. 1</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Campus Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

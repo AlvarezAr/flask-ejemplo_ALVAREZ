@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAB | CAMPUS DIGITAL</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <!-- =====MENÚ======= -->
+    <header class="header">
+        <nav class="navbar">
+            <!-- =====LOGO DE LA INSTITUCION======= -->
+            <a href="{{ url_for('inicio') }}" class="logo">
+                <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+            </a>
+
+            <div class="menu" id="menu">
+                <a href="{{ url_for('inicio') }}" class="activo"> Inicio </a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <!-- =====ACCION - MODO TEMA - MENU RESPONSIBO======= -->
+            <div class="acciones">
+                <button class="tema-btn" onclick="cambiarTema()">🌙</button>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            </div>
+        </nav>
+    </header>
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+
+    <main>
+
+        <section class="pagina-titulo">
+
+            <span>
+                COMUNIDAD EDUCATIVA
+            </span>
+
+            <h1>
+                Nuestros estudiantes
+            </h1>
+
+            <p>
+                Conoce algunos de los estudiantes
+                que forman parte de Campus Digital.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             BUSCADOR
+        ========================== -->
+
+        <section class="buscador">
+
+            <div class="buscador-contenedor">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    type="text"
+                    id="buscar"
+                    placeholder="Buscar estudiante..."
+                    onkeyup="buscarEstudiante()">
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ESTUDIANTES
+        ========================== -->
+
+        <section class="contenido">
+
+            <div class="cards estudiantes-grid">
+
+                {% for estudiante in estudiantes %}
+
+                <div class="card estudiante-card">
+
+                    <img
+                        src="{{ estudiante.imagen }}"
+                        alt="{{ estudiante.nombre }}"
+                        class="foto-estudiante">
+
+
+                    <div class="estudiante-info">
+
+                        <span class="curso">
+                            {{ estudiante.curso }}
+                        </span>
+
+                        <h3>
+                            {{ estudiante.nombre }}
+                        </h3>
+
+                        <p>
+                            Estudiante de Campus Digital,
+                            interesado en tecnología y
+                            aprendizaje.
+                        </p>
+
+
+                        <button
+                            class="btn-pequeno"
+                            onclick="mostrarPerfil('{{ estudiante.nombre }}')">
+
+                            Ver perfil
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- Mensaje cuando no hay resultados -->
+
+            <div
+                id="sinResultados"
+                class="sin-resultados">
+
+                <h3>
+                    😕 No se encontraron estudiantes
+                </h3>
+
+                <p>
+                    Intenta realizar otra búsqueda.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+<!-- ======FOOTER========= -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <a href="{{ url_for('inicio') }}" class="logo">
+                    <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+                 </a>
+                <p>Educación, tecnología e innovación para construir un mejor futuro.</p>
+            </div>
+            <div class="footer-columna">
+                <h3>Enlaces</h3>
+                <a href="{{ url_for('inicio') }}">Inicio</a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <div class="footer-columna">
+                <h3>Contacto</h3>
+                <p>📧 ariel.alvarez.m@uab.edu.bo</p>
+                <p>📱 79959978 - 71737636</p>
+                <p>📍 Bolivia, Cochabamba - Avenida Pairumani & C. 1</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Campus Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

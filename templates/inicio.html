@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAB | CAMPUS DIGITAL</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <!-- =====MENÚ======= -->
+    <header class="header">
+        <nav class="navbar">
+            <!-- =====LOGO DE LA INSTITUCION======= -->
+            <a href="{{ url_for('inicio') }}" class="logo">
+                <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+            </a>
+
+            <div class="menu" id="menu">
+                <a href="{{ url_for('inicio') }}" class="activo"> Inicio </a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <!-- =====ACCION - MODO TEMA - MENU RESPONSIBO======= -->
+            <div class="acciones">
+                <button class="tema-btn" onclick="cambiarTema()">🌙</button>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            </div>
+        </nav>
+    </header>
+    <!-- ======CONTENIDO PRINCIPAL========== -->
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-texto">
+                <span class="etiqueta">💻 Educación y tecnología</span>
+                <h1>Bienvenido al <span>Campus Digital</span></h1>
+                <p>Una plataforma educativa creada para estudiantes que desean aprender, desarrollar nuevas habilidades y aprovechar las herramientas digitales.</p>
+                <div class="hero-botones">
+                    <a href="{{ url_for('estudiantes') }}" class="btn">👨‍🎓 Ver estudiantes</a>
+                    <a href="{{ url_for('contacto') }}" class="btn btn-secundario">📩 Contactarnos</a>
+                </div>
+            </div>
+            <div class="hero-imagen">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Estudiantes universitarios">
+            </div>
+        </section>
+
+        <!-- =========ESTADÍSTICAS=============== -->
+        <section class="estadisticas">
+            <div class="estadistica">
+                <div class="icono-estadistica">👨‍🎓</div>
+                <h2 data-numero="150">0</h2>
+                <p>Estudiantes</p>
+            </div>
+            <div class="estadistica">
+                <div class="icono-estadistica">📚</div>
+                <h2 data-numero="20">0</h2>
+                <p>Cursos</p>
+            </div>
+            <div class="estadistica">
+                <div class="icono-estadistica">👨‍🏫</div>
+                <h2 data-numero="10">0</h2>
+                <p>Docentes</p>
+            </div>
+            <div class="estadistica">
+                <div class="icono-estadistica">🏆</div>
+                <h2 data-numero="5">0</h2>
+                <p>Años de experiencia</p>
+            </div>
+        </section>
+
+        <!-- =======SERVICIOS============ -->
+        <section class="contenido">
+            <div class="titulo-seccion">
+                <span>NUESTROS SERVICIOS</span>
+                <h2>Aprende y desarrolla tus habilidades</h2>
+                <p>Contamos con diferentes áreas para fortalecer la formación académica y tecnológica.</p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icono">💻</div>
+                    <h3>Tecnología</h3>
+                    <p>Aprende programación, desarrollo web y diferentes herramientas tecnológicas.</p>
+                    <a href="{{ url_for('contacto') }}">Más información →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icono">📚</div>
+                    <h3>Educación</h3>
+                    <p>Accede a recursos educativos para complementar tus conocimientos académicos. </p>
+                    <a href="{{ url_for('estudiantes') }}">Ver estudiantes →</a>
+                </div>
+                <div class="card">
+                    <div class="card-icono">🚀</div>
+                    <h3>Innovación</h3>
+                    <p>Desarrolla proyectos y adquiere nuevas habilidades para el mundo digital.</p>
+                    <a href="{{ url_for('contacto') }}">Contáctanos →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========LLAMADA A LA ACCIÓN============== -->
+        <section class="cta">
+            <div>
+                <h2>¿Quieres formar parte de nuestra comunidad?</h2>
+                <p>Ponte en contacto con nosotros y conoce nuestras actividades.</p>
+            </div>
+            <a  href="{{ url_for('contacto') }}" class="btn btn-blanco"> Contactar ahora</a>
+        </section>
+    </main>
+
+    <!-- ======FOOTER========= -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <div class="footer-columna">
+                <a href="{{ url_for('inicio') }}" class="logo">
+                    <img src="{{ url_for('static', filename='img/logo-uab1.png') }}" alt="Universidad Adventista de Bolivia">
+                 </a>
+                <p>Educación, tecnología e innovación para construir un mejor futuro.</p>
+            </div>
+            <div class="footer-columna">
+                <h3>Enlaces</h3>
+                <a href="{{ url_for('inicio') }}">Inicio</a>
+                <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+                <a href="{{ url_for('contacto') }}">Contacto</a>
+            </div>
+            <div class="footer-columna">
+                <h3>Contacto</h3>
+                <p>📧 ariel.alvarez.m@uab.edu.bo</p>
+                <p>📱 79959978 - 71737636</p>
+                <p>📍 Bolivia, Cochabamba - Avenida Pairumani & C. 1</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Campus Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
